@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <!-- <property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
+                    <property name="connection.url">jdbc:hsqldb:hsql://localhost/TestDB</property> -->
+
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/cubeitDB1</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password"></property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+
+        <property name="cache.use_second_level_cache">false</property>        
+        
+        <property name="hbm2ddl.auto">create</property>
+        
+   
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <mapping class="org.cubeit.cube_api.model.User"/>
+        <mapping class="org.cubeit.cube_api.model.Content"/>
+        <mapping class="org.cubeit.cube_api.model.Cube"/>
+        <mapping class="org.cubeit.cube_api.model.CubeContent"/>
+        <mapping class="org.cubeit.cube_api.model.CubeShare"/>
+        <mapping class="org.cubeit.cube_api.model.ContentShare"/>
+        
+        
+
+    </session-factory>
+
+</hibernate-configuration>
